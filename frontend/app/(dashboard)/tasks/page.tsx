@@ -42,7 +42,16 @@ export default function TasksPage() {
   }, [priorityFilter, statusFilter, toast]);
 
   useEffect(() => {
+    // Fetch tasks initially
     fetchTasks();
+
+    // Set interval to fetch tasks every 40 seconds
+    const interval = setInterval(() => {
+      fetchTasks();
+    }, 40000);
+
+    // Cleanup the interval when component unmounts
+    return () => clearInterval(interval);
   }, [fetchTasks]);
 
   const handleSelectTask = (taskId: string) => {
