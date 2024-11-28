@@ -11,7 +11,14 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+//app.use(cors());
+app.use(
+  cors({
+    origin: "https://task-management-eth0zq79j-rohans-projects-953e889e.vercel.app", // frontend's URL
+    methods: ["GET", "POST", "PUT", "DELETE"], 
+    credentials: true, 
+  })
+);
 app.use(express.json());
 
 // Routes
