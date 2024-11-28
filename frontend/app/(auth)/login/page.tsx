@@ -30,7 +30,7 @@ export default function LoginPage() {
       console.log('Login response:', response.data);
 
       document.cookie = `token=${response.data.token}; path=/;`;
-      router.push("/dashboard");
+     
 
      
       toast({
@@ -39,7 +39,7 @@ export default function LoginPage() {
       });
      
       console.log("redirecting to dashboard")
-
+      router.push("/dashboard");
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast({
